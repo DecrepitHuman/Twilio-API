@@ -33,15 +33,27 @@ class Language(Resource):
         languages.append(new_language)
         return {'result' : 'Language added'}, 201
 
+class data():
+    contents = {
+    "numbers": ["0826161123"],
+    "message": "Collecting stats for nerds.."
+    }
+
 #Interfacing Twilio
+class Twilio():
+    #Data vars
+    numbers = data.contents['numbers']
+    message = data.contents['message']
+
+    #Twilio vars
     account_sid = "################"
     auth_token = "#########"
     client = Client(account_sid, auth_token)
     message = client.messages \
         .create(
-            body="Getting stats for nerds...",
+            body=f"{numbers}",
             message_service_sid="#################",
-            to="############"
+            to=f"{numbers}"
         )
     print(message.sid)
 
