@@ -35,7 +35,7 @@ class Language(Resource):
 
 class data():
     contents = {
-    "numbers": ["0826161123"],
+    "numbers": ["##########"],
     "message": "Collecting stats for nerds.."
     }
 
